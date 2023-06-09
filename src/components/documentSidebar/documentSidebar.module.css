@@ -1,3 +1,23 @@
 .sidebar {
   grid-area: sidebar;
 }
+
+.sidebar ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar ul li {
+  border: solid 1px rgb(205, 205, 205);
+  border-radius: 5px;
+  padding: 10px 20px;
+  display: grid;
+  grid-template-columns: 75% 25%;
+}
+
+.sidebar ul li h3 span {
+  display: block;
+  color: red;
+  font-weight: 600;
+}

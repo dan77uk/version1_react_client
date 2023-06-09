@@ -46,3 +46,10 @@ button {
   font-weight: 600;
   transition: 0.4s;
 }
+
+.headline {
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+}

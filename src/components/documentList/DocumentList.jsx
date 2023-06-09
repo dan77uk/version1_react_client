@@ -30,7 +30,7 @@ export default function DocumentList() {
 
   return (
     <div className={styles.documentList}>
-      <h2>Documents Awaiting Your Approval</h2>
+      <h2 className="headline">Documents Awaiting Your Approval</h2>
       <ul>
         {documentsList.map((document) => {
           return <DocumentListCard key={document.title} document={document} />;
