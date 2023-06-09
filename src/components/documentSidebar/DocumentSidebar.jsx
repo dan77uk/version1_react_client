@@ -26,7 +26,7 @@ export default function DocumentSidebar() {
 
   return (
     <div className={styles.sidebar}>
-      <h2 className="headline">Open Approvals</h2>
+      <h2 className="headline">Incoming/Processed Approvals</h2>
       <ul>
         {documentsList.map((document) => {
           return (

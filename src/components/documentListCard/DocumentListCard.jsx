@@ -7,7 +7,7 @@ export default function DocumentListCard({ document }) {
     <li className={styles.card}>
       <h3>
         {document.title}
-        <span>{document.deadline}</span>
+        <span>Submission Date: {document.deadline}</span>
       </h3>
       <p>
         {document.chainPrevious} {">"} YOU {">"} {document.chainNext}{" "}
