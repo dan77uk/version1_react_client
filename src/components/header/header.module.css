@@ -1,0 +1,28 @@
+.wrapper {
+  width: 100%;
+  padding: 20px 0;
+  background-color: #eeeeee;
+}
+
+.wrapper section {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.wrapper section h2 {
+  font-weight: 800;
+  font-size: 1.4rem;
+}
+
+.wrapper section button {
+  background-color: #22bafc;
+}
+
+.wrapper section button:hover {
+  background-color: #e8f31f;
+  color: black;
+}

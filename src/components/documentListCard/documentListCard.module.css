@@ -1,0 +1,20 @@
+.card {
+  border: solid 1px rgb(205, 205, 205);
+  border-radius: 5px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card h3 {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 800;
+  font-size: 1.4rem;
+  align-items: baseline;
+}
+
+.card h3 span {
+  font-size: 1rem;
+}

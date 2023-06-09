@@ -1,0 +1,11 @@
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-column-gap: 40px;
+  grid-template-areas:
+    "welcome welcome welcome"
+    "main main sidebar";
+}

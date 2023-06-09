@@ -1,0 +1,15 @@
+.wrapper {
+  padding: 30px 0;
+  grid-area: welcome;
+  border-bottom: solid 1px rgb(213, 213, 213);
+  margin-bottom: 30px;
+}
+
+.wrapper h3 {
+  font-size: 1.4rem;
+}
+
+.wrapper h3 span {
+  font-weight: 800;
+  color: green;
+}

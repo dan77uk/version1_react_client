@@ -1,0 +1,9 @@
+.documentList {
+  grid-area: main;
+}
+
+.documentList ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
