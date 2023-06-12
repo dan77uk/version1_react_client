@@ -1,12 +1,12 @@
-FROM node:13.12.0-alpine AS development
-
-ENV NODE_ENV development
+FROM node:alpine 
 
 WORKDIR /react-app
 
-COPY ./package.json /react-app
+COPY ./package.json .
 RUN npm install
 
 COPY . .
+
+EXPOSE 8080
 
 CMD ["npm", "start"]
