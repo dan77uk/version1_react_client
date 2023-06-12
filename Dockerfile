@@ -1,12 +1,12 @@
-FROM node:alpine 
+FROM node:17-alpine 
 
-WORKDIR /react-app
+WORKDIR /app
 
-COPY ./package.json .
+COPY package.json .
 RUN npm install
 
 COPY . .
 
-EXPOSE 8080
+EXPOSE 3000
 
 CMD ["npm", "start"]
