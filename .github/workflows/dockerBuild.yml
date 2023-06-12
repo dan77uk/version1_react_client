@@ -33,8 +33,8 @@ jobs:
       - name: Increase version
         run: npm version patch
 
-      - name: Push new version
-        run: git push
+      # - name: Push new version
+      #   run: git push
 
       - name: Login to DockerHub Registry
         run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
