@@ -1,4 +1,4 @@
-FROM node:17-alpine 
+FROM node:latest
 
 WORKDIR /app
 
@@ -9,6 +9,4 @@ COPY . .
 
 EXPOSE 3000
 
-CMD ["start"]
-
-ENTRYPOINT [ "npm" ]
+CMD ["npm", "run", "start"]
