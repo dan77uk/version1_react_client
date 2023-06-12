@@ -2,13 +2,7 @@ import DocumentListCard from "../documentListCard/DocumentListCard";
 import styles from "./documentList.module.css";
 import PropTypes from "prop-types";
 
-DocumentList.propTypes = {
-  documents: PropTypes.array,
-  // ...prop type definitions here
-};
-
 export default function DocumentList({ documents }) {
-  console.log(Array.isArray(documents));
   // const documentsList = [
   //   {
   //     title: "DWP_aurora_migration-ToR",
@@ -47,3 +41,7 @@ export default function DocumentList({ documents }) {
     </div>
   );
 }
+
+DocumentList.propTypes = {
+  documents: PropTypes.array,
+};
