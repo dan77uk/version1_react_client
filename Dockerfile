@@ -1,11 +1,10 @@
-FROM node:13.12.0-alpine
+FROM node:13.12.0-alpine AS development
 
 WORKDIR /app
 
-ENV PATH /app/node_modules/.bin:$PATH
+ENV NODE_ENV development
 
-COPY package.json ./
-COPY package-lock.json ./
+COPY ./package.json /react-app
 RUN npm install
 
 COPY . .
