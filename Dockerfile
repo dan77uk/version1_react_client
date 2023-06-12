@@ -1,4 +1,4 @@
-FROM node:19.5.0-alpine
+FROM node:alpine3.15
 
 WORKDIR /app
 
@@ -6,6 +6,5 @@ COPY package.json .
 RUN npm install
 
 COPY . .
-
 
 CMD ["npm", "run", "dev"]
