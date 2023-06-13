@@ -29,7 +29,7 @@ export default function DocumentList({ documents }) {
   //     deadline: "Friday 16th June 2023",
   //   },
   // ];
-
+  console.log(documents);
   return (
     <div className={styles.documentList}>
       <h2 className="headline">Documents Awaiting Your Approval</h2>

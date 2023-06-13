@@ -1,0 +1,55 @@
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.wrapper h2 {
+  border-bottom: solid 1px;
+}
+
+.wrapper article {
+  display: flex;
+  flex-direction: column;
+  border: solid 1px;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+  gap: 20px;
+}
+
+.wrapper article h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  display: flex;
+  justify-content: space-between;
+}
+
+.wrapper article h2 span {
+  font-size: 1rem;
+}
+
+.wrapper article h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+#reviewDocs {
+  background-color: rgb(247, 255, 25);
+  padding: 5px 15px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.wrapper article textarea {
+  width: 100%;
+  min-height: 100px;
+  background: none;
+  border-radius: 3px;
+  border: solid 1px grey;
+}
+
+#back {
+  background-color: rgb(217, 217, 217);
+  padding: 3px 9px;
+  cursor: pointer;
+}

@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 // eslint-disable-next-line react/prop-types
 import styles from "./documentListCard.module.css";
+import { Link } from "react-router-dom";
 
 export default function DocumentListCard({ document }) {
   return (
@@ -17,7 +18,9 @@ export default function DocumentListCard({ document }) {
         <a href="#">View Full Chain</a>
       </p>
       <p>{document.description}</p>
-      <a href="#">Read more and review document</a>
+      <Link to={`documentId/${document.id}`}>
+        Read more and review document
+      </Link>
     </li>
   );
 }
