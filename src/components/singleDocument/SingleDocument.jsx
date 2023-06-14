@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import LoadingIcon from "../LoadingIcon";
 import ChainList from "../chainList/ChainList";
 import Modal from "../requestChangeModal/Modal";
+import Header from "../header/Header";
 
 export default function SingleDocument() {
   let history = useNavigate();
@@ -34,54 +35,55 @@ export default function SingleDocument() {
   return isLoading ? (
     <LoadingIcon />
   ) : (
-    <section className={styles.wrapper}>
-      <p id={styles.back} onClick={() => history(-1)}>
-        Back
-      </p>
-      <h2>
-        {singleDoc.customer}-{singleDoc.project}-{singleDoc.name}
-      </h2>
-      <div className={styles.documentInfoWrapper}>
-        <article>
-          <h2>
-            {singleDoc.customer}
-            <span>
-              Submission Date:{" "}
-              {singleDoc.submissionDate
-                ? singleDoc.submissionDate
-                : "No date set"}
-            </span>
-          </h2>
-          <h3>
-            {singleDoc.customer}-{singleDoc.project}-{singleDoc.name}
-          </h3>
-          <p>{singleDoc.description}</p>
-          <a href={singleDoc.documentLink} id={styles.reviewDocs}>
-            Review Documents
-          </a>
-
-          <Accordion defaultActiveKey="1">
-            <Accordion.Item eventKey="0">
-              <Accordion.Header>Add a Comment</Accordion.Header>
-              <Accordion.Body>
-                <textarea />
-                <button>Submit comment</button>
-              </Accordion.Body>
-            </Accordion.Item>
-          </Accordion>
-          <div id={styles.buttonWrapper}>
-            <button id={styles.approve}>Approve Document</button>
-            <button onClick={() => setShowModal(true)} id={styles.request}>
-              Request Changes
-            </button>
-            <button id={styles.reject}>Reject Document</button>
-          </div>
-        </article>
-        {/* {!isLoading && !usersLoading ? (
+    <div className={styles.container}>
+      <Header text="Back" link="/" />
+      <section className={styles.wrapper}>
+        <h2 className={styles.documentHeading}>
+          {singleDoc.customer}-{singleDoc.project}-{singleDoc.name}
+        </h2>
+        <div className={styles.documentInfoWrapper}>
+          <article>
+            <h2>
+              {singleDoc.customer}
+              <span>
+                Submission Date:{" "}
+                {singleDoc.submissionDate
+                  ? singleDoc.submissionDate
+                  : "No date set"}
+              </span>
+            </h2>
+            <h3>
+              {singleDoc.customer}-{singleDoc.project}-{singleDoc.name}
+            </h3>
+            <p>{singleDoc.description}</p>
+            <a href={singleDoc.documentLink} id={styles.reviewDocs}>
+              Review Document
+            </a>
+            <Accordion flush defaultActiveKey="1">
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>Add a Comment</Accordion.Header>
+                <Accordion.Body className={styles.commentSection}>
+                  <textarea />
+                  <button className={styles.button}>Submit comment</button>
+                </Accordion.Body>
+              </Accordion.Item>
+            </Accordion>
+            <div id={styles.buttonWrapper}>
+              <button id={styles.approve}>Approve Document</button>
+              <button onClick={() => setShowModal(true)} id={styles.request}>
+                Request Changes
+              </button>
+              <button id={styles.reject}>Reject Document</button>
+            </div>
+          </article>
+          {/* {!isLoading && !usersLoading ? (
           <ChainList users={users} chainList={singleDoc.chainList} />
         ) : null} */}
-      </div>
-      {showModal ? <Modal props={singleDoc} hideModal={setShowModal} /> : null}
-    </section>
+        </div>
+        {showModal ? (
+          <Modal props={singleDoc} hideModal={setShowModal} />
+        ) : null}
+      </section>
+    </div>
   );
 }

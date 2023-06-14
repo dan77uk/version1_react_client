@@ -60,7 +60,7 @@ export default function CreateNewRequest() {
 
   return (
     <div>
-      <Header text="Back" link="/" />
+      <Header text="Back" link="/originator" />
       <div className="container-wrapper">
         <h2 className="headline">Create Approval Request</h2>
         <div className="form">
@@ -117,7 +117,7 @@ export default function CreateNewRequest() {
                   <div className="btn-box">
                     {chainList.length !== 1 && (
                       <button
-                        className="mr10 button"
+                        className="button"
                         onClick={() => handleRemoveClick(i)}
                       >
                         Remove

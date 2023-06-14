@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 export default function App() {
   return (
     <>
-      <Header text="Create Approval Request" link="createNewRequest"/>
+      <Header text="Originator view" link="originator"/>
       <MainContent />
     </>
   );
