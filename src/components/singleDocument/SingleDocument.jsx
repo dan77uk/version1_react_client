@@ -1,4 +1,4 @@
-// import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Accordion from "react-bootstrap/Accordion";
 import { useState, useEffect } from "react";
 import { getDocumentById, getUsers } from "../../api/api";
@@ -10,7 +10,7 @@ import Modal from "../requestChangeModal/Modal";
 
 export default function SingleDocument() {
   let history = useNavigate();
-  // const { document_id } = useParams();
+  const { document_id } = useParams();
   const [singleDoc, setSingleDoc] = useState([]);
   const [users, setUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -18,17 +18,17 @@ export default function SingleDocument() {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    getDocumentById()
-      .then((result) => {
-        setSingleDoc(result);
-      })
-      .then(() => {
-        getUsers().then((result) => {
-          setUsers(result);
-          setIsLoading(false);
-          setUsersLoading(false);
-        });
-      });
+    getDocumentById(document_id).then((result) => {
+      setSingleDoc(result);
+      setIsLoading(false);
+    });
+    // .then(() => {
+    //   getUsers().then((result) => {
+    //     setUsers(result);
+    //     setIsLoading(false);
+    //     setUsersLoading(false);
+    //   });
+    // });
   }, []);
 
   return isLoading ? (
@@ -77,9 +77,9 @@ export default function SingleDocument() {
             <button id={styles.reject}>Reject Document</button>
           </div>
         </article>
-        {!isLoading && !usersLoading ? (
+        {/* {!isLoading && !usersLoading ? (
           <ChainList users={users} chainList={singleDoc.chainList} />
-        ) : null}
+        ) : null} */}
       </div>
       {showModal ? <Modal props={singleDoc} hideModal={setShowModal} /> : null}
     </section>
