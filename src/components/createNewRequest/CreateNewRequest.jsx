@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import { useState } from "react";
 import "./createNewRequest.css";
 import Header from "../header/Header";
+import { postNewDocument } from "../../api/api";
 
 export default function CreateNewRequest() {
   const [formData, setFormData] = useState({
@@ -11,6 +12,8 @@ export default function CreateNewRequest() {
     name: "",
     description: "",
     documentLink: "",
+    currentApprover: 1,
+    originator: 1,
     chainList: "",
   });
 
@@ -26,7 +29,8 @@ export default function CreateNewRequest() {
     event.preventDefault();
     formData.chainList = chainList;
     // const completedFormData = [...formData, chainList]
-    console.log(formData);
+    // console.log(formData);
+    postNewDocument(formData);
   };
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -34,16 +38,18 @@ export default function CreateNewRequest() {
       ...prevData,
       [name]: value,
     }));
-    console.log(formData);
+    // console.log(formData);
   };
 
-  const [chainList, setChainList] = useState([{ id: "", userId: "" }]);
+  const [chainList, setChainList] = useState([
+    { userId: "", position: "", approved: false, timeStamp: null },
+  ]);
   const handleChainListChange = (e, index) => {
     const { name, value } = e.target;
     const list = [...chainList];
     list[index][name] = value;
     setChainList(list);
-    console.log(list);
+    // console.log(list);
   };
 
   // handle click event of the Remove button
@@ -55,7 +61,10 @@ export default function CreateNewRequest() {
 
   // handle click event of the Add button
   const handleAddClick = () => {
-    setChainList([...chainList, { id: "", userId: "" }]);
+    setChainList([
+      ...chainList,
+      { position: "", userId: "", approved: false, timeStamp: null },
+    ]);
   };
 
   return (
@@ -101,7 +110,7 @@ export default function CreateNewRequest() {
               return (
                 <div className="box">
                   <input
-                    name="id"
+                    name="position"
                     className="input-style"
                     placeholder="Enter chain position"
                     value={x.id}
@@ -110,7 +119,7 @@ export default function CreateNewRequest() {
                   <input
                     className="input-style"
                     name="userId"
-                    placeholder="Enter userId"
+                    placeholder="Enter User Id"
                     value={x.userId}
                     onChange={(e) => handleChainListChange(e, i)}
                   />
@@ -124,7 +133,9 @@ export default function CreateNewRequest() {
                       </button>
                     )}
                     {chainList.length - 1 === i && (
-                      <button onClick={handleAddClick} className="button">Add</button>
+                      <button onClick={handleAddClick} className="button">
+                        Add
+                      </button>
                     )}
                   </div>
                 </div>
@@ -178,10 +189,7 @@ export default function CreateNewRequest() {
           >
             Send request
           </Button>
-          <Button
-            variant="primary"
-            className="button"
-          >
+          <Button variant="primary" className="button">
             Save draft
           </Button>
         </div>

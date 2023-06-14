@@ -31,3 +31,13 @@ export const getDocumentById = (id) => {
     return res.data;
   });
 };
+
+export const postNewDocument = (obj) => {
+  console.log(obj);
+  return v1Api
+    .post(`/V1Approved/docs/addDocument`, { body: obj })
+    .then((res) => {
+      console.log(res.data);
+      return res.data;
+    });
+};
