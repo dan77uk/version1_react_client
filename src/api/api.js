@@ -9,7 +9,7 @@ const v1Api = axios.create({
 });
 
 export const getDocuments = () => {
-  return v1Api.get("V1Approved/docs/byUser?userId=2").then((res) => {
+  return v1Api.get("V1Approved/docs/byUser?userId=4").then((res) => {
     return res.data;
   });
 };
@@ -34,10 +34,8 @@ export const getDocumentById = (id) => {
 
 export const postNewDocument = (obj) => {
   console.log(obj);
-  return v1Api
-    .post(`/V1Approved/docs/addDocument`, { body: obj })
-    .then((res) => {
-      console.log(res.data);
-      return res.data;
-    });
+  return v1Api.post(`/V1Approved/addDocument`, obj).then((res) => {
+    console.log(res);
+    return res.data;
+  });
 };
