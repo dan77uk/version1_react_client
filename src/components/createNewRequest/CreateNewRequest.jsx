@@ -4,8 +4,11 @@ import { useState } from "react";
 import "./createNewRequest.css";
 import Header from "../header/Header";
 import { postNewDocument } from "../../api/api";
+import Modal from "react-bootstrap/Modal";
+import { Link } from "react-router-dom";
 
 export default function CreateNewRequest() {
+  const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
     customer: "",
     project: "",
@@ -30,7 +33,11 @@ export default function CreateNewRequest() {
     formData.chainList = chainList;
     // const completedFormData = [...formData, chainList]
     // console.log(formData);
-    postNewDocument(formData);
+    postNewDocument(formData).then((res) => {
+      if (res === 200) {
+        setShowModal(true);
+      }
+    });
   };
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -69,6 +76,12 @@ export default function CreateNewRequest() {
 
   return (
     <div>
+      {showModal ? (
+        <MyVerticallyCenteredModal
+          show={showModal}
+          onHide={() => setModalShow(false)}
+        />
+      ) : null}
       <Header text="Back" link="/" />
       <div className="container-wrapper">
         <h2 className="headline">Create Approval Request</h2>
@@ -195,5 +208,29 @@ export default function CreateNewRequest() {
         </div>
       </div>
     </div>
+  );
+}
+
+function MyVerticallyCenteredModal(props) {
+  return (
+    <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">Success</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <h4>Your Approval Chain has been created</h4>
+      </Modal.Body>
+      <Modal.Footer>
+        {/* <Button onClick={props.onHide}>Close</Button> */}
+        <Button>
+          <Link to="/">Return to Document List</Link>
+        </Button>
+      </Modal.Footer>
+    </Modal>
   );
 }
