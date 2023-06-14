@@ -22,7 +22,9 @@ export default function DocumentList({ documents }) {
 
       <ul>
         {documents.map((document) => {
-          return <DocumentListCard key={document.id} document={document} />;
+          return (
+            <DocumentListCard key={document.documentId} document={document} />
+          );
         })}
       </ul>
     </div>

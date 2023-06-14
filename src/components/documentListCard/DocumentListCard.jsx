@@ -18,7 +18,7 @@ export default function DocumentListCard({ document }) {
         <a href="#">View Full Chain</a>
       </p>
       <p>{document.description}</p>
-      <Link to={`documentId/${document.id}`}>
+      <Link to={`documentId/${document.documentId}`}>
         Read more and review document
       </Link>
     </li>

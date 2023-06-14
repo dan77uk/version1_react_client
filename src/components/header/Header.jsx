@@ -6,7 +6,7 @@ export default function Header() {
       <section>
         <h2>Version 1 </h2>
         <button>
-          <Link to={"createNewRequest"}>Create Approval Request</Link>
+          <Link to={"createNewRequest"}>Originator View</Link>
         </button>
       </section>
     </header>
