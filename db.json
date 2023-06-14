@@ -1,19 +1,238 @@
 {
-  "posts": [
+  "users": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "name": "Andrew H",
+      "email": "Andrew.H@version1.com"
+    },
+    {
+      "id": 2,
+      "name": "Arsalan A",
+      "email": "Arsalan.A@version1.com"
+    },
+    {
+      "id": 3,
+      "name": "Connor O",
+      "email": "Connor.O@version1.com"
+    },
+    {
+      "id": 4,
+      "name": "Dan P",
+      "email": "Dan.P@version1.com"
+    },
+    {
+      "id": 5,
+      "name": "Eunjung S",
+      "email": "Eunjung.S@version1.com"
+    },
+    {
+      "id": 6,
+      "name": "Fergus B",
+      "email": "Fergus.B@version1.com"
+    },
+    {
+      "id": 7,
+      "name": "Olfa K",
+      "email": "Olfa.K@version1.com"
+    },
+    {
+      "id": 8,
+      "name": "Sumaiya A",
+      "email": "Sumaiya.A@version1.com"
+    },
+    {
+      "id": 9,
+      "name": "Vasi C",
+      "email": "Vasi.C@version1.com"
     }
   ],
-  "comments": [
+  "documents": [
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "customer": "HMRC",
+      "project": "AWS Migration",
+      "name": "ToR",
+      "description": "Migrating XX and XX from legacy Oracle to AWS Aurora",
+      "document_link": "#",
+      "current_approver": "2",
+      "originator": "1"
+    },
+    {
+      "id": 2,
+      "customer": "DWP",
+      "project": "React Client",
+      "name": "CR",
+      "description": "Creating a React client to bootstrap into exisiting infrastructure",
+      "document_link": "#",
+      "current_approver": "3",
+      "originator": "5"
+    },
+    {
+      "id": 3,
+      "customer": "DLUHC",
+      "project": "Elastic Demand",
+      "name": "CR",
+      "description": "Putting infrastructure in place to allow for expected increased usage over upcoming fiscal quarter.",
+      "document_link": "#",
+      "current_approver": "2",
+      "originator": "9"
     }
   ],
-  "profile": {
-    "name": "typicode"
-  }
+  "chain": [
+    { "id": 1, "document_id": 1, "position": 2, "approved": false },
+    { "id": 2, "document_id": 2, "position": 3, "approved": false },
+    { "id": 3, "document_id": 3, "position": 5, "approved": false }
+  ],
+  "docInfo": [
+    {
+      "documentId": 2,
+      "customer": "DWP",
+      "project": "AWS Migration",
+      "name": "Migration Plan",
+      "description": "Overview of migration strategy",
+      "documentLink": "sharepoint.com/test",
+      "currentApprover": null,
+      "originator": null,
+      "chainList": [
+        {
+          "id": 5,
+          "userId": 6,
+          "position": 1,
+          "approved": true,
+          "timeStamp": null
+        },
+        {
+          "id": 6,
+          "userId": 5,
+          "position": 2,
+          "approved": true,
+          "timeStamp": null
+        },
+        {
+          "id": 7,
+          "userId": 8,
+          "position": 3,
+          "approved": true,
+          "timeStamp": null
+        }
+      ]
+    }
+  ],
+  "byUser": [
+    {
+      "documentId": 1,
+      "customer": "HMRC",
+      "project": "Springboot-app",
+      "name": "doc1",
+      "description": "A very important document",
+      "documentLink": "sharepoint.com/test",
+      "currentApprover": null,
+      "originator": null,
+      "chainList": [
+        {
+          "id": 1,
+          "userId": 1,
+          "position": 1,
+          "approved": true,
+          "timeStamp": null
+        },
+        {
+          "id": 2,
+          "userId": 4,
+          "position": 2,
+          "approved": true,
+          "timeStamp": null
+        },
+        {
+          "id": 3,
+          "userId": 9,
+          "position": 3,
+          "approved": true,
+          "timeStamp": null
+        },
+        {
+          "id": 4,
+          "userId": 3,
+          "position": 4,
+          "approved": true,
+          "timeStamp": null
+        }
+      ]
+    },
+    {
+      "documentId": 4,
+      "customer": "V1 Newcastle",
+      "project": "New office",
+      "name": "Tenancy Agreement",
+      "description": "Tenancy Contract for new office",
+      "documentLink": "sharepoint.com/test",
+      "currentApprover": null,
+      "originator": null,
+      "chainList": [
+        {
+          "id": 9,
+          "userId": 1,
+          "position": 1,
+          "approved": true,
+          "timeStamp": null
+        },
+        {
+          "id": 10,
+          "userId": 2,
+          "position": 2,
+          "approved": true,
+          "timeStamp": null
+        },
+        {
+          "id": 11,
+          "userId": 3,
+          "position": 3,
+          "approved": true,
+          "timeStamp": null
+        },
+        {
+          "id": 12,
+          "userId": 4,
+          "position": 4,
+          "approved": true,
+          "timeStamp": null
+        },
+        {
+          "id": 13,
+          "userId": 5,
+          "position": 5,
+          "approved": true,
+          "timeStamp": null
+        },
+        {
+          "id": 14,
+          "userId": 6,
+          "position": 6,
+          "approved": true,
+          "timeStamp": null
+        },
+        {
+          "id": 15,
+          "userId": 7,
+          "position": 7,
+          "approved": true,
+          "timeStamp": null
+        },
+        {
+          "id": 16,
+          "userId": 8,
+          "position": 8,
+          "approved": true,
+          "timeStamp": null
+        },
+        {
+          "id": 17,
+          "userId": 9,
+          "position": 9,
+          "approved": true,
+          "timeStamp": null
+        }
+      ]
+    }
+  ]
 }

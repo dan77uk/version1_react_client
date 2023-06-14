@@ -1,0 +1,70 @@
+.wrapper {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper article {
+  width: 960px;
+  margin: 0 auto;
+  background-color: white;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+}
+
+.commentWrapper {
+  border: solid 1px;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.commentWrapper textarea {
+  color: black;
+  border: solid 1px rgb(211, 211, 211);
+  padding: 10px;
+}
+
+.buttonWrapper {
+  margin: 20px 0;
+  display: flex;
+  gap: 30px;
+}
+
+.buttonWrapper div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border: solid 1px rgb(204, 204, 204);
+  padding: 6px 18px;
+  border-radius: 5px;
+}
+
+.buttonWrapper div input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}
+
+#requestChange {
+  background-color: rgb(36, 164, 233);
+}
+
+#requestChange:hover {
+  background-color: rgb(80, 190, 249);
+}
+
+#cancel {
+  background-color: rgb(201, 40, 0);
+}
+
+#cancel:hover {
+  background-color: rgb(226, 52, 8);
+}

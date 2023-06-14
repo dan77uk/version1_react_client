@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import { getDocuments } from "../../api/api";
 import DocumentList from "../documentList/DocumentList";
-import DocumentSidebar from "../documentSidebar/DocumentSidebar";
+// import DocumentSidebar from "../documentSidebar/DocumentSidebar";
 import Welcome from "../welcome/Welcome";
 import styles from "./homepage.module.css";
-import { Link } from "react-router-dom";
 
 export default function MainContent() {
   const [documents, setDocuments] = useState([]);
@@ -13,23 +12,16 @@ export default function MainContent() {
 
   useEffect(() => {
     getDocuments().then((result) => {
-      // const usersDocs = result.filter((doc) => doc.current_approver == 2);
-      // setDocuments(usersDocs);
       setDocuments(result);
       setIsLoading(false);
     });
-    // .then(() => {
-    //   getUsers().then((result) => {
-    //     console.log(result);
-    //   });
-    // });
   }, []);
 
   return !isLoading ? (
     <main className={styles.wrapper}>
       <Welcome docsToApprove={documents.length} />
       <DocumentList documents={documents} />
-      <DocumentSidebar />
+      {/* <DocumentSidebar /> */}
     </main>
   ) : (
     <p>Loading</p>

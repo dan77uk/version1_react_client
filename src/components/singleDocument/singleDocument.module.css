@@ -1,6 +1,10 @@
 .wrapper {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 .wrapper h2 {
@@ -12,8 +16,7 @@
   flex-direction: column;
   border: solid 1px;
   padding: 20px;
-  border-radius: 10px;
-  margin: 20px 0;
+  border-radius: 5px;
   gap: 20px;
 }
 
@@ -22,6 +25,12 @@
   font-weight: 800;
   display: flex;
   justify-content: space-between;
+}
+
+.documentInfoWrapper {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
 }
 
 .wrapper article h2 span {
@@ -50,6 +59,24 @@
 
 #back {
   background-color: rgb(217, 217, 217);
-  padding: 3px 9px;
+  padding: 6px 24px;
   cursor: pointer;
+  border-radius: 3px;
+  transition: 0.6s;
+}
+
+#buttonWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+#approve {
+  background-color: green;
+}
+
+#request {
+  background-color: rgb(62, 76, 223);
+}
+
+#reject {
+  background-color: rgb(201, 64, 19);
 }

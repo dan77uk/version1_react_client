@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const v1Api = axios.create({
-  baseURL: "https://v1-mock-server.vercel.app/",
+  baseURL: "http://localhost:3001",
 });
 
 export const getDocuments = () => {
