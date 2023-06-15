@@ -18,7 +18,8 @@
   min-height: 200px;
   display: flex;
   flex-direction: column;
-  padding: 40px 60px;
+  padding: 60px 80px 40px;
+
 }
 
 .commentWrapper {
@@ -50,22 +51,26 @@
 
 #requestChange {
   background-color: #6f9460;
+  height: 40px;
   padding: 5px 10px;
 }
 
 #requestChange:hover {
   background-color: #5fb34e;
   padding: 5px 10px;
+  height: 40px;
 }
 
 #cancel {
   background-color: #ba3c3c;
   padding: 5px 10px;
+  height: 40px;
 }
 
 #cancel:hover {
   background-color: #e01c1c;
   padding: 5px 10px;
+  height: 40px;
 }
 
 .buttons {
@@ -81,4 +86,17 @@
 .notify {
   justify-content: center;
   gap: 5px;
+}
+
+.requestHeading {
+  text-decoration: underline;
+  text-underline-offset: 7px;
+  margin: 0 auto;padding-bottom: 15px;
+  text-decoration-color: #00938f;
+  letter-spacing: 0.5px;
+  font-size: 1.9rem !important;
+}
+
+.documentLink:hover {
+  text-decoration: none;
 }
