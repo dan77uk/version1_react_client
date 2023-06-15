@@ -6,7 +6,7 @@ import styles from "./singleDocument.module.css";
 import { useNavigate } from "react-router-dom";
 import LoadingIcon from "../LoadingIcon";
 import ChainList from "../chainList/ChainList";
-// import Modal from "../requestChangeModal/Modal";
+import ChangeModal from "../requestChangeModal/Modal";
 import Header from "../header/Header";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
@@ -99,7 +99,7 @@ export default function SingleDocument() {
         ) : null} */}
         </div>
         {showModal ? (
-          <Modal props={singleDoc} hideModal={setShowModal} />
+          <ChangeModal props={singleDoc} hideModal={setShowModal} />
         ) : null}
       </section>
     </div>

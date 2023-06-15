@@ -1,6 +1,6 @@
 import styles from "./modal.module.css";
 
-export default function Modal({ props, hideModal }) {
+export default function ChangeModal({ props, hideModal }) {
   function handleFormSubmit(event) {
     event.preventDefault();
     console.log(event.target[0].value);
@@ -18,7 +18,11 @@ export default function Modal({ props, hideModal }) {
         <form onSubmit={handleFormSubmit}>
           <div className={styles.commentWrapper}>
             <label htmlFor="write-comment">Describe changes</label>
-            <textarea placeholder="Write comment" id="write-comment" className="bg-light" />
+            <textarea
+              placeholder="Write comment"
+              id="write-comment"
+              className="bg-light"
+            />
           </div>
           <div className={styles.buttonWrapper}>
             <div className={styles.notify}>
