@@ -15,11 +15,11 @@ export default function DocumentListCard({ document }) {
       </h3>
       <p>
         {document.chainPrevious} {">"} YOU {">"} {document.chainNext}{" "}
-        <a href="#">View Full Chain</a>
+        <a href="#">View full chain</a>
       </p>
       <p>{document.description}</p>
       <Link to={`documentId/${document.documentId}`}>
-        Read more and review document
+        Read and review document
       </Link>
     </li>
   );

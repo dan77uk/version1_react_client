@@ -6,7 +6,7 @@ export default function Welcome(docsToApprove) {
       <h3>
         Welcome Dan, you have{" "}
         <span>{docsToApprove.docsToApprove} Documents</span> currently awaiting
-        your approval
+        your approval.
       </h3>
     </section>
   );
