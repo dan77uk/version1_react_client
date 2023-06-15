@@ -5,6 +5,7 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import SingleDocument from "./components/singleDocument/SingleDocument.jsx";
 import CreateNewRequest from "./components/createNewRequest/CreateNewRequest.jsx";
+import OriginatorView from "./components/OriginatorView/OriginatorView.jsx";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
   {
     path: "/documentId/:document_id",
     element: <SingleDocument />,
+  },
+  {
+    path: "/originator",
+    element: <OriginatorView />,
   },
   {
     path: "/createNewRequest",

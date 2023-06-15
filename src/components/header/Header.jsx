@@ -5,13 +5,14 @@ export default function Header(props) {
     <header className={styles.wrapper}>
       <section>
         <img
-          src="./src/assets/Version1Logo.webp"
+          src="../src/assets/Version1Logo.webp"
           alt=""
           className={styles.logo}
         />
         <button>
-          <Link to={props.link}>{props.text}</Link>
+          //<Link to={props.link}>{props.text}</Link>
           <Link to={"createNewRequest"}>Originator View</Link>
+
         </button>
       </section>
     </header>

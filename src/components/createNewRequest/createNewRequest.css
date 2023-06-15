@@ -2,9 +2,11 @@
   max-width: 1000px;
   margin: 40px auto;
 }
+
 .form {
-    margin-top: 20px;
+  margin-top: 20px;
 }
+
 .button {
   padding: 8px 16px;
   margin-right: 20px;
@@ -23,19 +25,18 @@
   color: white;
 }
 
-
 .form-sections {
   margin-bottom: 40px;
 }
+
 .box {
-  /* border: 1px solid red; */
   margin-bottom: 20px;
 }
 
-.btn-box, .add-button {
+.btn-box,
+.add-button {
   display: inline-block;
   margin-left: 10px;
-
 }
 
 .input-style {
@@ -43,7 +44,18 @@
   background-color: white;
   color: black;
   border: 1px solid rgb(222, 226, 230);
-  text-indent: 5px;
   border-radius: 5px;
   height: 36px;
+  padding: 0.375rem 0.75rem;
+}
+
+.input-style:focus {
+  border-color: #86b7fe;
+  outline: 200;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  padding: 0.375rem 0.75rem;
+}
+
+.input-style::placeholder {
+  color: rgba(33, 37, 41, 0.75);
 }

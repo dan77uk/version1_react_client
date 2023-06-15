@@ -17,23 +17,24 @@ export default function Modal({ props, hideModal }) {
         <a href="#">Review Documents</a>
         <form onSubmit={handleFormSubmit}>
           <div className={styles.commentWrapper}>
-            <label htmlFor="write-comment">Describe Changes</label>
-            <textarea placeholder="Write comment" id="write-comment" />
+            <label htmlFor="write-comment">Describe changes</label>
+            <textarea placeholder="Write comment" id="write-comment" className="bg-light" />
           </div>
           <div className={styles.buttonWrapper}>
-            <div>
+            <div className={styles.notify}>
               <label htmlFor="notify-previous">
                 Notify Previous Reviewers?
               </label>
               <input type="checkbox" id="notify-previous" />
             </div>
-            <button id={styles.requestChange} type="submit">
-              Submit Change Request
-            </button>
-
-            <button onClick={() => hideModal(false)} id={styles.cancel}>
-              Cancel
-            </button>
+            <div className={styles.buttons}>
+              <button id={styles.requestChange} type="submit">
+                Submit Change Request
+              </button>
+              <button onClick={() => hideModal(false)} id={styles.cancel}>
+                Cancel
+              </button>
+            </div>
           </div>
         </form>
       </article>

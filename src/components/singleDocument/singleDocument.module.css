@@ -3,21 +3,31 @@
   margin: 20px auto;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
 }
 
-.wrapper h2 {
-  border-bottom: solid 1px;
+.documentHeading {
+  font-size: 1.4rem;
+  width: 100%;
+  background-color: #113037;
+  color: white;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
 }
 
 .wrapper article {
   display: flex;
   flex-direction: column;
-  border: solid 1px;
-  padding: 20px;
-  border-radius: 5px;
+  border: 1px  solid rgb(205, 205, 205);
+  padding: 40px;
+  border-radius: 12px;
   gap: 20px;
+  margin-top: 10px;
+  background-color: #f8f8f8;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 0px 2px rgba(0, 0, 0, 0.12);
 }
 
 .wrapper article h2 {
@@ -28,9 +38,8 @@
 }
 
 .documentInfoWrapper {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 20px;
+  width: 100%;
+  margin-bottom: 100px;
 }
 
 .wrapper article h2 span {
@@ -43,10 +52,10 @@
 }
 
 #reviewDocs {
-  background-color: rgb(247, 255, 25);
-  padding: 5px 15px;
+  padding: 5px 0;
   border-radius: 4px;
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 6px;
 }
 
 .wrapper article textarea {
@@ -67,16 +76,55 @@
 
 #buttonWrapper {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  padding-top: 20px;
+  color: white;
 }
 #approve {
-  background-color: green;
+  background-color: #6f9460;
+  height: 40px;
+  color: white;
+}
+#approve:hover {
+background-color: #5fb34e;
 }
 
 #request {
-  background-color: rgb(62, 76, 223);
+  background-color: #113037;
+  height: 40px;
+  color: white;
 }
 
 #reject {
-  background-color: rgb(201, 64, 19);
+  background-color: #ba3c3c;
+  height: 40px;
+  color: white;
+}
+
+#reject:hover {
+  background-color: #e01c1c;
+  }
+
+.button{
+  padding: 8px 16px;
+  margin-top: 10px;
+  margin-right: 20px;
+  width: auto;
+  height: 40px;
+  background: #113037;
+  border: 1px solid #113037;
+  border-radius: 4px;
+  color: white;
+  text-decoration: none;
+}
+
+.button:hover {
+  background-color: #00938f;
+  border: 1px solid #00938f;
+  color: white;
+}
+
+.commentSection {
+  background-color: #f8f8f8;
+  padding: 16px 2px;
 }
