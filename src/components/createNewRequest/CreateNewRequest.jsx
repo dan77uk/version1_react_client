@@ -3,14 +3,20 @@ import Button from "react-bootstrap/Button";
 import { useState } from "react";
 import "./createNewRequest.css";
 import Header from "../header/Header";
+import { postNewDocument } from "../../api/api";
+import Modal from "react-bootstrap/Modal";
+import { Link } from "react-router-dom";
 
 export default function CreateNewRequest() {
+  const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
     customer: "",
     project: "",
     name: "",
     description: "",
     documentLink: "",
+    currentApprover: 1,
+    originator: 1,
     chainList: "",
   });
 
@@ -26,7 +32,12 @@ export default function CreateNewRequest() {
     event.preventDefault();
     formData.chainList = chainList;
     // const completedFormData = [...formData, chainList]
-    console.log(formData);
+    // console.log(formData);
+    postNewDocument(formData).then((res) => {
+      if (res === 200) {
+        setShowModal(true);
+      }
+    });
   };
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -34,16 +45,18 @@ export default function CreateNewRequest() {
       ...prevData,
       [name]: value,
     }));
-    console.log(formData);
+    // console.log(formData);
   };
 
-  const [chainList, setChainList] = useState([{ id: "", userId: "" }]);
+  const [chainList, setChainList] = useState([
+    { userId: "", position: "", approved: false, timeStamp: null },
+  ]);
   const handleChainListChange = (e, index) => {
     const { name, value } = e.target;
     const list = [...chainList];
     list[index][name] = value;
     setChainList(list);
-    console.log(list);
+    // console.log(list);
   };
 
   // handle click event of the Remove button
@@ -55,12 +68,23 @@ export default function CreateNewRequest() {
 
   // handle click event of the Add button
   const handleAddClick = () => {
-    setChainList([...chainList, { id: "", userId: "" }]);
+    setChainList([
+      ...chainList,
+      { position: "", userId: "", approved: false, timeStamp: null },
+    ]);
   };
 
   return (
     <div>
       <Header text="Back" link="/originator" />
+      {showModal ? (
+        <MyVerticallyCenteredModal
+          show={showModal}
+          onHide={() => setModalShow(false)}
+        />
+      ) : null}
+     // <Header text="Back" link="/" />
+
       <div className="container-wrapper">
         <h2 className="headline">Create Approval Request</h2>
         <div className="form">
@@ -101,7 +125,7 @@ export default function CreateNewRequest() {
               return (
                 <div className="box">
                   <input
-                    name="id"
+                    name="position"
                     className="input-style"
                     placeholder="Enter chain position"
                     value={x.id}
@@ -110,7 +134,7 @@ export default function CreateNewRequest() {
                   <input
                     className="input-style"
                     name="userId"
-                    placeholder="Enter userId"
+                    placeholder="Enter User Id"
                     value={x.userId}
                     onChange={(e) => handleChainListChange(e, i)}
                   />
@@ -124,7 +148,9 @@ export default function CreateNewRequest() {
                       </button>
                     )}
                     {chainList.length - 1 === i && (
-                      <button onClick={handleAddClick} className="button">Add</button>
+                      <button onClick={handleAddClick} className="button">
+                        Add
+                      </button>
                     )}
                   </div>
                 </div>
@@ -178,14 +204,35 @@ export default function CreateNewRequest() {
           >
             Send request
           </Button>
-          <Button
-            variant="primary"
-            className="button"
-          >
+          <Button variant="primary" className="button">
             Save draft
           </Button>
         </div>
       </div>
     </div>
+  );
+}
+
+function MyVerticallyCenteredModal(props) {
+  return (
+    <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">Success</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <h4>Your Approval Chain has been created</h4>
+      </Modal.Body>
+      <Modal.Footer>
+        {/* <Button onClick={props.onHide}>Close</Button> */}
+        <Button>
+          <Link to="/">Return to Document List</Link>
+        </Button>
+      </Modal.Footer>
+    </Modal>
   );
 }
