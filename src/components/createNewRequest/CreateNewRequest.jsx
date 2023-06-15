@@ -15,24 +15,17 @@ export default function CreateNewRequest() {
     name: "",
     description: "",
     documentLink: "",
-    currentApprover: 1,
-    originator: 1,
+    currentApprover: 4,
+    originator: 4,
     chainList: "",
   });
-
-  //   "customer": "DWP",
-  // //     "project": "AWS Migration",
-  // //     "name": "Migration Plan",
-  // //     "description": "Overview of migration strategy",
-  // //     "documentLink": "sharepoint.com/test",
-  // //     "currentApprover": null,
-  // //     "originator": null,
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
     formData.chainList = chainList;
     // const completedFormData = [...formData, chainList]
-    // console.log(formData);
+    console.log(chainList);
+
     postNewDocument(formData).then((res) => {
       if (res === 200) {
         setShowModal(true);
@@ -76,15 +69,14 @@ export default function CreateNewRequest() {
 
   return (
     <div>
-      <Header text="Back" link="/originator" />
+      {/* <Header text="Back" link="/originator" /> */}
       {showModal ? (
         <MyVerticallyCenteredModal
           show={showModal}
           onHide={() => setModalShow(false)}
         />
       ) : null}
-     // <Header text="Back" link="/" />
-
+      <Header text="Back" link="/" />
       <div className="container-wrapper">
         <h2 className="headline">Create Approval Request</h2>
         <div className="form">

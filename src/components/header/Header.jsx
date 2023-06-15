@@ -10,9 +10,8 @@ export default function Header(props) {
           className={styles.logo}
         />
         <button>
-          //<Link to={props.link}>{props.text}</Link>
-          <Link to={"createNewRequest"}>Originator View</Link>
-
+          <Link to={props.link}>{props.text}</Link>
+          {/* <Link to={"createNewRequest"}>Originator View</Link> */}
         </button>
       </section>
     </header>

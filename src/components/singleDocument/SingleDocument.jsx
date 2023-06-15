@@ -1,13 +1,16 @@
 import { useParams } from "react-router-dom";
 import Accordion from "react-bootstrap/Accordion";
 import { useState, useEffect } from "react";
-import { getDocumentById, getUsers } from "../../api/api";
+import { getDocumentById, getUsers, approveDocument } from "../../api/api";
 import styles from "./singleDocument.module.css";
 import { useNavigate } from "react-router-dom";
 import LoadingIcon from "../LoadingIcon";
 import ChainList from "../chainList/ChainList";
-import Modal from "../requestChangeModal/Modal";
+// import Modal from "../requestChangeModal/Modal";
 import Header from "../header/Header";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 
 export default function SingleDocument() {
   let history = useNavigate();
@@ -17,6 +20,7 @@ export default function SingleDocument() {
   const [isLoading, setIsLoading] = useState(true);
   const [usersLoading, setUsersLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
+  const [showApproveModal, setShowApproveModal] = useState(false);
 
   useEffect(() => {
     getDocumentById(document_id).then((result) => {
@@ -32,12 +36,24 @@ export default function SingleDocument() {
     // });
   }, []);
 
+  function submitApproveDocument(userId, documentId) {
+    approveDocument(4, document_id).then(() => {
+      setShowApproveModal(true);
+    });
+  }
+
   return isLoading ? (
     <LoadingIcon />
   ) : (
     <div className={styles.container}>
       <Header text="Back" link="/" />
       <section className={styles.wrapper}>
+        {showApproveModal ? (
+          <MyVerticallyCenteredModal
+            show={showApproveModal}
+            onHide={() => setShowApproveModal(false)}
+          />
+        ) : null}
         <h2 className={styles.documentHeading}>
           {singleDoc.customer}-{singleDoc.project}-{singleDoc.name}
         </h2>
@@ -69,7 +85,9 @@ export default function SingleDocument() {
               </Accordion.Item>
             </Accordion>
             <div id={styles.buttonWrapper}>
-              <button id={styles.approve}>Approve Document</button>
+              <button id={styles.approve} onClick={submitApproveDocument}>
+                Approve Document
+              </button>
               <button onClick={() => setShowModal(true)} id={styles.request}>
                 Request Changes
               </button>
@@ -85,5 +103,29 @@ export default function SingleDocument() {
         ) : null}
       </section>
     </div>
+  );
+}
+
+function MyVerticallyCenteredModal(props) {
+  return (
+    <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">Success</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <h4>Your Document Has Been Approved</h4>
+      </Modal.Body>
+      <Modal.Footer>
+        {/* <Button onClick={props.onHide}>Close</Button> */}
+        <Button>
+          <Link to="/">Return to Document List</Link>
+        </Button>
+      </Modal.Footer>
+    </Modal>
   );
 }
