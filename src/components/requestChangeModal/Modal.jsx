@@ -9,17 +9,17 @@ export default function ChangeModal({ props, hideModal }) {
   return (
     <section className={styles.wrapper}>
       <article>
-        <h2>Request Changes</h2>
+        <h2 className={styles.requestHeading}>Request Changes</h2>
         <h3>
           {props.customer}-{props.project}-{props.name}
         </h3>
         <p>{props.description}</p>
-        <a href="#">Review Documents</a>
+        <a href="#" className={styles.documentLink}>Review Documents</a>
         <form onSubmit={handleFormSubmit}>
           <div className={styles.commentWrapper}>
-            <label htmlFor="write-comment">Describe changes</label>
+            <label htmlFor="write-comment">Add comment:</label>
             <textarea
-              placeholder="Write comment"
+              placeholder="Describe your requested changes..."
               id="write-comment"
               className="bg-light"
             />

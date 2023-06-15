@@ -115,14 +115,14 @@ function MyVerticallyCenteredModal(props) {
       centered
     >
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">Success</Modal.Title>
+        <Modal.Title id="contained-modal-title-vcenter"className={styles.successMessage}>Success</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <h4>Your Document Has Been Approved</h4>
+        <h4 className={styles.docApproved}>Your document has been approved.</h4>
       </Modal.Body>
       <Modal.Footer>
         {/* <Button onClick={props.onHide}>Close</Button> */}
-        <Button>
+        <Button className={styles.button}>
           <Link to="/">Return to Document List</Link>
         </Button>
       </Modal.Footer>

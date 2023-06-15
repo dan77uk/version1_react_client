@@ -59,3 +59,19 @@
 .input-style::placeholder {
   color: rgba(33, 37, 41, 0.75);
 }
+
+.button a {
+  color: white;
+  text-decoration: none;
+}
+
+.success {
+  padding-left: 10px;
+  font-size: 1.6rem;
+}
+
+
+.success-text {
+  font-size: 1rem;
+  padding: 20px 0 0 10px;
+}
