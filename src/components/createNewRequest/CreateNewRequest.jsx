@@ -78,10 +78,10 @@ export default function CreateNewRequest() {
       ) : null}
       <Header text="Back" link="/" />
       <div className="container-wrapper">
-        <h2 className="headline">Create Approval Request</h2>
+        <h2 className="headline">Create approval request</h2>
         <div className="form">
           <div className="form-sections">
-            <h3 className="form-section-headings">Document Details</h3>
+            <h3 className="form-section-headings">Document details</h3>
             <Form.Group className="mb-3" controlId="customer">
               <Form.Label>Customer</Form.Label>
               <Form.Control
@@ -101,7 +101,7 @@ export default function CreateNewRequest() {
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="name">
-              <Form.Label>Document Name</Form.Label>
+              <Form.Label>Document name</Form.Label>
               <Form.Control
                 type="text"
                 name="name"
@@ -112,7 +112,7 @@ export default function CreateNewRequest() {
           </div>
 
           <div className="form-sections">
-            <h3 className="form-section-headings">Approval Chain</h3>
+            <h3 className="form-section-headings">Approval chain</h3>
             {chainList.map((x, i) => {
               return (
                 <div className="box">
@@ -163,7 +163,7 @@ export default function CreateNewRequest() {
             </Form.Group>
           </div>
           <div className="form-sections">
-            <h3 className="form-section-headings">Add Document</h3>
+            <h3 className="form-section-headings">Add document</h3>
             <Form.Group className="mb-3" controlId="documentLink">
               <Form.Label>Document Link</Form.Label>
               <Form.Control

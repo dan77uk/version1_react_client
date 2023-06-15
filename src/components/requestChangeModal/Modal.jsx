@@ -33,7 +33,7 @@ export default function ChangeModal({ props, hideModal }) {
             </div>
             <div className={styles.buttons}>
               <button id={styles.requestChange} type="submit">
-                Submit Change Request
+                Submit request
               </button>
               <button onClick={() => hideModal(false)} id={styles.cancel}>
                 Cancel

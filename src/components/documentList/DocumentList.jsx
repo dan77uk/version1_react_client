@@ -7,7 +7,7 @@ export default function DocumentList({ documents }) {
   return (
     <div className={styles.documentList}>
       <div className="headline">
-        <h2>Documents Awaiting Your Approval</h2>
+        <h2>Documents awaiting your approval</h2>
         <Dropdown>
           <Dropdown.Toggle variant="success" id="dropdown-basic">
             Filter Documents

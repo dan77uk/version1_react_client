@@ -73,7 +73,7 @@ export default function SingleDocument() {
             </h3>
             <p>{singleDoc.description}</p>
             <a href={singleDoc.documentLink} id={styles.reviewDocs}>
-              Review Document
+              Review document
             </a>
             <Accordion flush defaultActiveKey="1">
               <Accordion.Item eventKey="0">
@@ -86,12 +86,12 @@ export default function SingleDocument() {
             </Accordion>
             <div id={styles.buttonWrapper}>
               <button id={styles.approve} onClick={submitApproveDocument}>
-                Approve Document
+                Approve document
               </button>
               <button onClick={() => setShowModal(true)} id={styles.request}>
-                Request Changes
+                Request changes
               </button>
-              <button id={styles.reject}>Reject Document</button>
+              <button id={styles.reject}>Reject document</button>
             </div>
           </article>
           {/* {!isLoading && !usersLoading ? (

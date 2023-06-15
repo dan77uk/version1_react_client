@@ -12,7 +12,7 @@ export default function OriginatorViewCard({ document }) {
           <p>
             {document.chainPrevious} {">"} YOU {">"} {document.chainNext}{" "}
             <a href="#" className="view-chain">
-              View Full Chain
+              View full chain
             </a>
           </p>
           <p>
