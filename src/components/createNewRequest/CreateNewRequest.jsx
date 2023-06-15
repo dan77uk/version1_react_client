@@ -222,7 +222,7 @@ function MyVerticallyCenteredModal(props) {
       <Modal.Footer>
         {/* <Button onClick={props.onHide}>Close</Button> */}
         <Button className="button">
-          <Link to="/">Return to Document List</Link>
+          <Link to="/">Close</Link>
         </Button>
       </Modal.Footer>
     </Modal>
